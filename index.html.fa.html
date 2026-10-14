@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Face Arcade</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+</head>
+<body>
+<div class="bg" id="bg" aria-hidden="true"></div>
+<header>
+  <h1 class="logo">🎮 Face Arcade</h1>
+  <button id="sndBtn" class="chip">🔊 Sound on</button>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="mascot">😄</div>
+    <h2>Play with your face and your hands</h2>
+    <p>Head moves, smiles, and hand gestures control the games. No login. Your video never leaves this device.</p>
+    <button class="play" id="playNow">▶ Play Now</button>
+  </section>
+  <section id="games">
+    <h3>😊 Face Games</h3>
+    <div class="grid">
+      <div class="card face" data-g="stars" tabindex="0"><span class="em">🌟</span><h4>Catch the Stars</h4><p>Move your head to run, tilt up to jump, smile for super speed.</p></div>
+      <div class="card face" data-g="fly" tabindex="0"><span class="em">🐦</span><h4>Flappy Face</h4><p>Fly through the pipes with head up/down. Smile for a boost.</p></div>
+    </div>
+    <h3>✋ Hand Games</h3>
+    <div class="grid">
+      <div class="card hand" data-g="jump" tabindex="0"><span class="em">🐰</span><h4>Gesture Jumper</h4><p>Move your hand to run, raise it to jump, make a fist to dash.</p></div>
+    </div>
+  </section>
+  <section class="note">
+    <b>Privacy:</b> camera frames are analysed in your browser only. Nothing is recorded, saved, or uploaded, and there is no identity recognition. The camera turns off when you leave a game. High scores are stored only in this browser.
+    <br><b>Tip:</b> open through <code>http://localhost</code> or HTTPS (for example <code>python -m http.server</code>), because browsers block cameras on plain files.
+  </section>
+</main>
+
+<main id="gameView" hidden>
+  <div class="bar">
+    <button id="backBtn" class="chip">← Home</button>
+    <b id="gTitle"></b>
+    <label>Level <select id="diff"><option value="easy">Easy</option><option value="normal" selected>Normal</option><option value="hard">Hard</option></select></label>
+  </div>
+  <div class="hud">
+    <span>⭐ Score <b id="hScore">0</b></span><span>🏆 Best <b id="hBest">0</b></span>
+    <span>❤️ Lives <b id="hLives">3</b></span><span>⏱ <b id="hTime">0</b>s</span><span id="live">No camera</span>
+  </div>
+  <div class="stage">
+    <canvas id="cv" width="800" height="500"></canvas>
+    <video id="vid" playsinline muted></video><canvas id="trk"></canvas>
+    <div id="ov" class="ov"></div>
+  </div>
+  <div class="ctrl">
+    <button id="bStart">▶ Start</button><button id="bPause">⏸ Pause</button>
+    <button id="bRestart">↻ Restart</button><button id="bCal">🎯 Recenter</button>
+  </div>
+  <p id="status" class="note"></p>
+  <p id="help" class="note"></p>
+  <p class="note">No camera? Move the mouse over the game (click/tap = jump or boost, hold = dash), or use ←/→ move, ↑ jump, ↓ fly down, S smile, Space dash, P pause.</p>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
