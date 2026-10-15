@@ -1,4 +1,4 @@
-:root{--p:#ff6fb5;--b:#6c8cff;--y:#ffd447;--g:#4de3b0;--ink:#2b2350}
+:root{--p:#d43683;--b:#6c8cff;--y:#ffd447;--g:#4de3b0;--ink:#2b2350}
 *{box-sizing:border-box}
 body{margin:0;font-family:'Trebuchet MS','Segoe UI',system-ui,sans-serif;color:var(--ink);background:linear-gradient(135deg,#ffe3f3,#dfe8ff 50%,#d9fff0);min-height:100vh;overflow-x:hidden}
 .bg{position:fixed;inset:0;pointer-events:none;z-index:0}
